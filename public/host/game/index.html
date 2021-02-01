@@ -3,28 +3,37 @@
     <head>
         <title>Game | KahootClone</title>
         <link rel = "stylesheet" href = "../../css/hostGameView.css">
-        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
     </head>
     <body>
-        <h4 id = "questionNum">Question 1 / x</h4>
-        <h4 id = "playersAnswered">Players Answered: 0 / x</h4>
-        <h3 id = "timerText">Time Left:<span id = "num"> 20</span></h3>
-        
-        
-        <div class = "square" id = "square1"></div>
-        <div class = "square" id = "square2"></div>
-        <div class = "square" id = "square3"></div>
-        <div class = "square" id = "square4"></div>
-        
-        <h2 id = "question">Question</h2>
-        <h3 id = "answer1">Answer</h3>
-        <br>
-        <h3 id = "answer2">Answer</h3>
-        <br>
-        <h3 id = "answer3">Answer</h3>
-        <br>
-        <h3 id = "answer4">Answer</h3>
+        <header>
+            <h4 id = "questionNum">คำถามข้อที่ 1</h4>
+            <h4 id = "playerArea">คนตอบ: 
+                <div id="playersAnswered">0 / x</div>
+            </h4>
+            <h3 id = "timerText"><span id = "num"> 20</span></h3>
+            
+            <div class = "square" id = "square1"></div>
+            <div class = "square" id = "square2"></div>
+            <div class = "square" id = "square3"></div>
+            <div class = "square" id = "square4"></div>
+            
+            <h2 id = "question">คำถาม</h2>
+        </header>
+        <div class="answer-container">
+            <div class="answer">
+                <div class="item" id="answer1">ตัวเลือกที่ 1</div>
+            </div>
+            <div class="answer">
+                <div class="item" id="answer2">ตัวเลือกที่ 2</div>
+            </div>
+            <div class="answer">
+                <div class="item" id="answer3">ตัวเลือกที่ 3</div>
+            </div>
+            <div class="answer">
+                <div class="item" id="answer4">ตัวเลือกที่ 4</div>
+            </div>
+        </div>
         
         <br>
         <button onclick = "nextQuestion()" id = "nextQButton">Next Question</button>

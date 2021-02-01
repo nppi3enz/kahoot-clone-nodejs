@@ -18,9 +18,15 @@ var players = new Players();
 //Mongodb setup
 var MongoClient = require('mongodb').MongoClient;
 var mongoose = require('mongoose');
-var url = "mongodb://localhost:27017/";
+const {
+    MONGO_USERNAME,
+    MONGO_PASSWORD,
+    MONGO_HOSTNAME,
+    MONGO_PORT,
+    MONGO_DB
+} = process.env;
 
-
+const url = `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOSTNAME}:${MONGO_PORT}/${MONGO_DB}?authSource=admin`;
 
 app.use(express.static(publicPath));
 
@@ -98,6 +104,7 @@ io.on('connection', (socket) => {
                     var correctAnswer = res[0].questions[0].correct;
                     
                     socket.emit('gameQuestions', {
+                        questionNum: 0,
                         q1: question,
                         a1: answer1,
                         a2: answer2,
@@ -334,6 +341,7 @@ io.on('connection', (socket) => {
                         var correctAnswer = res[0].questions[questionNum].correct;
 
                         socket.emit('gameQuestions', {
+                            questionNum: questionNum,
                             q1: question,
                             a1: answer1,
                             a2: answer2,

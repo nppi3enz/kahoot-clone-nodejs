@@ -18,18 +18,19 @@ socket.on('noGameFound', function(){
 });
 
 socket.on('gameQuestions', function(data){
+    document.getElementById('questionNum').innerHTML = 'คำถามข้อที่ '+(parseInt(data.questionNum)+1);
     document.getElementById('question').innerHTML = data.q1;
     document.getElementById('answer1').innerHTML = data.a1;
     document.getElementById('answer2').innerHTML = data.a2;
     document.getElementById('answer3').innerHTML = data.a3;
     document.getElementById('answer4').innerHTML = data.a4;
     var correctAnswer = data.correct;
-    document.getElementById('playersAnswered').innerHTML = "Players Answered 0 / " + data.playersInGame;
+    document.getElementById('playersAnswered').innerHTML = "0 / " + data.playersInGame;
     updateTimer();
 });
 
 socket.on('updatePlayersAnswered', function(data){
-   document.getElementById('playersAnswered').innerHTML = "Players Answered " + data.playersAnswered + " / " + data.playersInGame; 
+   document.getElementById('playersAnswered').innerHTML = data.playersAnswered + " / " + data.playersInGame; 
 });
 
 socket.on('questionOver', function(playerData, correct){

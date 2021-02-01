@@ -31,3 +31,14 @@ button{
     text-align: center;
     font-size: 35px;
 }
+#questionNum{
+    text-align: right;
+    padding-right: 10px;
+    font-family: 'Kanit', sans-serif;
+}
+#stats{
+    display: flex;
+}
+#stats h4{
+    flex: 1;
+}

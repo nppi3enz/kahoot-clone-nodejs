@@ -65,6 +65,7 @@ socket.on('newScore', function(data){
     document.getElementById('scoreText').innerHTML = "Score: " + data;
 });
 
+let questionNum = 1
 socket.on('nextQuestionPlayer', function(){
     correct = false;
     playerAnswered = false;
@@ -75,7 +76,8 @@ socket.on('nextQuestionPlayer', function(){
     document.getElementById('answer4').style.visibility = "visible";
     document.getElementById('message').style.display = "none";
     document.body.style.backgroundColor = "white";
-    
+
+    document.getElementById('questionNum').innerHTML = 'คำถามข้อที่ '+(parseInt(questionNum++)+1);
 });
 
 socket.on('hostDisconnect', function(){
@@ -100,4 +102,3 @@ socket.on('GameOver', function(){
     document.getElementById('message').style.display = "block";
     document.getElementById('message').innerHTML = "GAME OVER";
 });
-
